@@ -107,7 +107,7 @@ if __name__ == '__main__':
 
     print('Input unit number(1-25の場合は1, 126-150の場合は126)')
     num = int(input())
-    print('Input end unit number(1001-1025で終わりたければ1001)')
+    print('Input end unit number(1001-1025を最後にするなら1026)')
     end = int(input())
 
     while(True):
