@@ -92,7 +92,7 @@ def Answer():
 
 if __name__ == '__main__':
     options = Options()
-    options.binary_location = '/usr/bin/google-chrome'
+    options.binary_location = '/usr/bin/google-chrome-stable'
     options.add_argument('--headless')
     driver = webdriver.Chrome('chromedriver', chrome_options=options)
     driver.get('https://w5.linguaporta.jp/user/seibido/index.php')
