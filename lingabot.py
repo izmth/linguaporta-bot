@@ -15,7 +15,7 @@ def login(uid, upassword):
     submit.submit()
 
 def selectCocet():
-    driver.execute_script("document.Study.submit()") # 本の選択画面へ移行
+    driver.execute_script("document.sStudy.submit()") # 本の選択画面へ移行
     driver.execute_script("select_reference('70')") # cocet2600を選択
 
 def selectUnit(unit_num):
@@ -26,7 +26,7 @@ def selectUnit(unit_num):
 def Answer():
     hist = {}
     while(True):
-        time.sleep(1) # 待つ(サーバーにやさしく)
+        time.sleep(2) # 待つ(サーバーにやさしく)
 
         print("=================================================")
 
@@ -75,6 +75,7 @@ def Answer():
         submit = driver.find_element_by_id('ans_submit')
         submit.submit()
 
+        time.sleep(2)
         # 正解と不正解の判定
         try:
             driver.find_element_by_id('true_msg')
@@ -105,9 +106,9 @@ if __name__ == '__main__':
 
     login(id, password)
 
-    print('Input unit number(1-25の場合は1, 126-150の場合は126)')
+    print('Input start number(1-25の場合は1, 126-150の場合は126)')
     num = int(input())
-    print('Input end unit number(1001-1025を最後にするなら1026)')
+    print('Input finish unit number(976-1000を最後にするなら1000)')
     end = int(input())
 
     while(True):
@@ -115,9 +116,10 @@ if __name__ == '__main__':
         print('Now unit is', str(num)+'-'+str(num+24))
         selectUnit(num)
         Answer()
-        num += 25
-        if num == end:
+        if num == (end-24):
             break
+        num += 25
+
 
     print('All unit was cleared. Exit.')
     driver.quit()  # ブラウザーを終了する。
