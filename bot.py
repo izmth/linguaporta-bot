@@ -93,7 +93,6 @@ def Answer():
             question = driver.find_element_by_id('qu02')
         except:
             print("このユニットは既に完了しています。")
-        else:
             break
 
         print("問題:", question.text)
